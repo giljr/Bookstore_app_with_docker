@@ -1,3 +1,30 @@
 <section class="flex flex-col w-full border">
   <h3 class="font-bold text-lg">Revenue</h3>
+
+  <%= render 'dashboard/charts/revenue/chart' %>
+
+  <table class="my-5 w-full border-collapse border-2">
+    <thead>
+      <tr class="bg-indigo-200 text-indigo-800">
+        <th class="w-1/3 border-2 px-4 py-2 text-sm text-center font-semibold">ID</th>
+        <th class="w-1/3 border-2 px-4 py-2 text-sm text-center font-semibold">Name</th>
+        <th class="w-1/3 border-2 px-4 py-2 text-sm text-center font-semibold">Revenue</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Book.includes(:sells).find_each do |book| %>
+        <tr class="even:bg-indigo-50">
+          <td class="w-1/3 border-2 px-4 py-2 text-sm text-center"><%= book.id %></td>
+          <td class="w-1/3 border-2 px-4 py-2 text-sm text-center"><%= book.name %></td>
+          <td class="w-1/3 border-2 px-4 py-2 text-sm text-center font-semibold">
+            <%= number_to_currency(book.sells.sum(:total), unit: "USD ") %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="mt-4 p-4 text-lg font-bold text-indigo-800 border-t-2">
+    Total Revenue: <%= number_to_currency(Sell.sum(:total), unit: "USD ") %>
+  </div>
 </section>

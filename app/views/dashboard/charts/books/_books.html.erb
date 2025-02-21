@@ -1,3 +1,14 @@
 <section class="flex flex-col w-full border">
   <h3 class="font-bold text-lg">Sells By Book</h3>
+
+  <% Book.all.each do |book| %>
+    <div 
+      data-controller="book" 
+      data-book-sells='<%= latest_sells(book.id).to_json %>' 
+      data-book-id="<%= book.id %>" 
+      data-book-name="<%= book.name %>"
+      class="text-white bg-white p-5 m-5 rounded">
+      <canvas id="book_chart_<%= book.id %>" style="width:100%; max-width:700px"></canvas>
+    </div>
+  <% end %>
 </section>

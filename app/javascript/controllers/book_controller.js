@@ -1,0 +1,33 @@
+import { Controller } from "@hotwired/stimulus";
+
+export default class extends Controller {
+  connect() {
+    const divElement = this.element;
+    const data = JSON.parse(divElement.getAttribute('data-book-sells'));
+    const id = divElement.getAttribute('data-book-id');
+    const bookName = divElement.getAttribute('data-book-name'); // Get book name
+
+    let xValues = data.map((_, index) => index); // Create x values based on data length
+
+    new Chart(`book_chart_${id}`, {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [{
+          fill: false,
+          lineTension: 0,
+          backgroundColor: "rgba(255,0,0)",
+          borderColor: "rgba(255,0,0,.2)",
+          data: data
+        }]
+      },
+      options: {
+        legend: { display: false },
+        title: { 
+          display: true,
+          text: bookName // Set the title to the book name
+        }
+      }
+    });
+  }
+}
