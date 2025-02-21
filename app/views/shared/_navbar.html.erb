@@ -1,0 +1,17 @@
+<nav class="w-full flex bg-indigo-100 items-center p-5 justify-between fixed shadow-md">
+  <div class="flex gap-5 items-center">
+    <h3 class="font-bold text-lg text-indigo-700">The Bookstore App</h3>
+  </div>
+
+  <div class="flex">
+    <%= turbo_frame_tag 'new_record_component', class: 'flex gap-5' do %>
+      <%= link_to '#', id: 'sell_link', class: 'text-indigo-100 font-semibold text-xs text-center bg-indigo-500 hover:bg-indigo-600 rounded px-4 py-2 shadow' do %>
+        Add sell
+      <% end %>
+
+      <%= link_to new_book_path, id: 'book_link', class: 'text-indigo-100 font-semibold text-xs text-center bg-indigo-700 hover:bg-indigo-800 rounded px-4 py-2 shadow' do %>
+        Add a new book
+      <% end %>
+    <% end %>
+  </div>
+</nav>
