@@ -1,24 +1,19 @@
-# README
+## A Bookstore Project
+### Using Docker and Hotwire (Turbo + Stimulus) 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+in Rails 8 is a modern web application where users can browse, search, and manage books dynamically with real-time updates.
 
-Things you may want to cover:
+Tech Stack:
 
-* Ruby version
+    Rails 8: The latest version of Rails, optimized for speed and security.
+    Hotwire (Turbo + Stimulus): Enables fast, real-time updates without heavy JavaScript.
+    PostgreSQL: The database for storing book details, user data, and transactions.+
+    Docker: For containerized development, ensuring consistency across environments.
+Here's the Tutorials:
 
-* System dependencies
+[0](https://medium.com/jungletronics/bookstore-project-infra-01de739c60cd) — 1–2–3–4–5–6–7–8–9–10
 
-* Configuration
+## License
 
-* Database creation
+[MIT](https://choosealicense.com/licenses/mit/)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
