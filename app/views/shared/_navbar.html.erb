@@ -5,7 +5,7 @@
 
   <div class="flex">
     <%= turbo_frame_tag 'new_record_component', class: 'flex gap-5' do %>
-      <%= link_to '#', id: 'sell_link', class: 'text-indigo-100 font-semibold text-xs text-center bg-indigo-500 hover:bg-indigo-600 rounded px-4 py-2 shadow' do %>
+      <%= link_to new_sell_path, id: 'sell_link', class: 'text-indigo-100 font-semibold text-xs text-center bg-indigo-500 hover:bg-indigo-600 rounded px-4 py-2 shadow' do %>
         Add sell
       <% end %>
 
