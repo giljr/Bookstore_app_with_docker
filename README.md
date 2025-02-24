@@ -11,7 +11,7 @@ Tech Stack:
     Docker: For containerized development, ensuring consistency across environments.
 Here's the Tutorials:
 
-[0](https://medium.com/jungletronics/bookstore-project-infra-01de739c60cd) — 1–2–3–4–5–6–7–8–9–10
+[0](https://medium.com/jungletronics/bookstore-project-infra-01de739c60cd) [0](https://medium.com/jungletronics/bookstore-project-infra-01de739c60cd) — [1](https://medium.com/jungletronics/bookstore-1-caee3b06a04c)–[2](https://medium.com/jungletronics/bookstore-selling-books-2-65c2c54b18d4)–[3](https://medium.com/jungletronics/bookstore-graphs-3-1e98f7739120)–[4](https://medium.com/jungletronics/bookstore-chartjs-4-27950a954e96)–[5]([https://medium.com/jungletronics/bookstore-chartjs-4-27950a954e96](https://medium.com/jungletronics/bookstore-bar-chart-5-a5a6fca2e682))–6–7–8–9–10
 
 ## License
 
