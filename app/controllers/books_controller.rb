@@ -4,19 +4,21 @@ class BooksController < ApplicationController
     end
 
     def create
-        @book = Book.new(book_params)
-        if @book.save
-          respond_to do |format|
-            format.turbo_stream
-            format.html { redirect_to books_path, notice: 'Book was successfully created.' }
+      @book = Book.new(book_params)
+      if @book.save
+        respond_to do |format|
+          format.turbo_stream
+          format.html { redirect_to books_path, notice: 'Book was successfully created.' }
+        end
+      else
+        respond_to do |format|
+          format.turbo_stream do
+            render turbo_stream: turbo_stream.replace('book_form', partial: 'form', locals: { book: @book })
           end
-        else
-          respond_to do |format|
-            format.turbo_stream { render turbo_stream: turbo_stream.replace('book_form', partial: 'form', locals: { book: @book }) }
-            format.html { render :new, status: :unprocessable_entity }
-          end
+          format.html { render :new, status: :unprocessable_entity }
         end
       end
+    end
 
     private
 

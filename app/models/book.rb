@@ -1,7 +1,6 @@
 class Book < ApplicationRecord
-    validates :name, presence: true
-    validates :price, presence: true
-
+    validates :name, presence: { message: 'cannot be blank' }
+    validates :price, presence: { message: 'cannot be blank' }, numericality: { greater_than: 0 }
     has_many :sells
 
     after_create :create_chart

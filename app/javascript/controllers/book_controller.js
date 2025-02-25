@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  
   connect() {
     const divElement = this.element
     const data = JSON.parse(divElement.getAttribute('data-book-sells'))
@@ -26,10 +27,8 @@ export default class extends Controller {
       },
       options: {
         legend: { display: false },
-        title: { 
-          display: true,
-          text: bookName
-        }
-    });
+        title: { display: true, text: bookName }
+     }
+   })
   }
 }

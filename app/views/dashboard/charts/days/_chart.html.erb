@@ -1,3 +1,25 @@
 <div data-controller="days" data-day-sells="<%= sells_per_day %>" id="days_chart">
     <canvas id="daySells" style="width:100%;max-width:700px"></canvas> 
 </div>
+
+
+<table class="my-5 w-full border-collapse border-2">
+    <thead>
+      <tr class="bg-indigo-200 text-indigo-800">
+        <th class="w-1/4 border-2 px-4 py-2 text-sm text-center font-semibold">Day</th>
+        <th class="w-1/4 border-2 px-4 py-2 text-sm text-center font-semibold">Quantity</th>
+        <th class="w-1/4 border-2 px-4 py-2 text-sm text-center font-semibold">Total Sales</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% sorted_sales_data.each do |day, total| %>
+        <tr class="even:bg-indigo-50">
+          <td class="border-2 px-4 py-2 text-sm text-center"><%= Date::DAYNAMES[day.to_i] %></td>
+          <td class="border-2 px-4 py-2 text-sm text-center"><%= quantity_by_day_of_week[day] || 0 %></td>
+          <td class="border-2 px-4 py-2 text-sm text-center font-semibold"><%= number_to_currency(total, unit: "USD ") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+

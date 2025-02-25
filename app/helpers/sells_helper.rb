@@ -2,8 +2,9 @@ module SellsHelper
     def sells_per_day
         array = Array.new
 
-        Sell::DAYS.each do |day|
-            array.push([day, Sell.where(day: day).sum(:quantity)])
+        Date::DAYNAMES.each_with_index do |day, index|
+            quantity = Sell.where("EXTRACT(DOW FROM sold_at) = ?", index).sum(:quantity)
+            array.push([day, quantity])
         end
 
         array
@@ -18,4 +19,19 @@ module SellsHelper
 
         array
     end
+
+  
+      def sales_by_day_of_week
+        Sell.group("EXTRACT(DOW FROM sold_at)").sum(:total)
+      end
+    
+      def quantity_by_day_of_week
+        Sell.group("EXTRACT(DOW FROM sold_at)").sum(:quantity)
+      end
+    
+      def sorted_sales_data
+        days_order = [0, 1, 2, 3, 4, 5, 6] # Sunday (0) → Monday (1)
+        sales_by_day_of_week.sort_by { |day, _| days_order.index(day.to_i) }
+      end
+
 end
